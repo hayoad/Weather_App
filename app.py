@@ -58,7 +58,7 @@ def index_post():
             # Check API response code for valid city
             new_city_data = get_weather_data(new_city)
             if new_city_data['cod'] == 200:
-                new_city_obj = City(name=new_city)  # Create a new City object
+                new_city_obj = City(name=new_city)  # type: ignore # Create a new City object
                 db.session.add(new_city_obj)
                 db.session.commit()
                 flash('City added successfully!', 'success')  # Flash success message
